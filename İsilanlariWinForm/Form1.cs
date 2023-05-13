@@ -28,7 +28,7 @@ namespace İsilanlariWinForm
 
         private void personelGirisbtn_Click(object sender, EventArgs e)
         {
-
+            
         }
 
         private void personelKayıtbtn_Click(object sender, EventArgs e)

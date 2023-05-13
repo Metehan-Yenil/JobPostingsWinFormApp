@@ -32,9 +32,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this.personelKayıtbtn = new System.Windows.Forms.Button();
             this.personelGirisbtn = new System.Windows.Forms.Button();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.ParolaGirisText = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.KullanıcıGirisText = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -45,9 +45,9 @@
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.personelKayıtbtn);
             this.panel1.Controls.Add(this.personelGirisbtn);
-            this.panel1.Controls.Add(this.textBox2);
+            this.panel1.Controls.Add(this.ParolaGirisText);
             this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.textBox1);
+            this.panel1.Controls.Add(this.KullanıcıGirisText);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
@@ -90,14 +90,14 @@
             this.personelGirisbtn.UseVisualStyleBackColor = false;
             this.personelGirisbtn.Click += new System.EventHandler(this.personelGirisbtn_Click);
             // 
-            // textBox2
+            // ParolaGirisText
             // 
-            this.textBox2.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.textBox2.Location = new System.Drawing.Point(141, 237);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(172, 22);
-            this.textBox2.TabIndex = 3;
-            this.textBox2.UseSystemPasswordChar = true;
+            this.ParolaGirisText.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.ParolaGirisText.Location = new System.Drawing.Point(141, 237);
+            this.ParolaGirisText.Name = "ParolaGirisText";
+            this.ParolaGirisText.Size = new System.Drawing.Size(172, 22);
+            this.ParolaGirisText.TabIndex = 3;
+            this.ParolaGirisText.UseSystemPasswordChar = true;
             // 
             // label2
             // 
@@ -111,12 +111,12 @@
             this.label2.TabIndex = 2;
             this.label2.Text = "Parola:";
             // 
-            // textBox1
+            // KullanıcıGirisText
             // 
-            this.textBox1.Location = new System.Drawing.Point(141, 195);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(172, 22);
-            this.textBox1.TabIndex = 0;
+            this.KullanıcıGirisText.Location = new System.Drawing.Point(141, 195);
+            this.KullanıcıGirisText.Name = "KullanıcıGirisText";
+            this.KullanıcıGirisText.Size = new System.Drawing.Size(172, 22);
+            this.KullanıcıGirisText.TabIndex = 0;
             // 
             // Form1
             // 
@@ -137,9 +137,9 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox KullanıcıGirisText;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox ParolaGirisText;
         private System.Windows.Forms.Button personelGirisbtn;
         private System.Windows.Forms.Button personelKayıtbtn;
         private System.Windows.Forms.Panel panel1;
