@@ -79,5 +79,15 @@ namespace İsilanlariWinForm.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
+        /// </summary>
+        internal static System.Drawing.Bitmap photo_1557682250_33bd709cbe85 {
+            get {
+                object obj = ResourceManager.GetObject("photo-1557682250-33bd709cbe85", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }
