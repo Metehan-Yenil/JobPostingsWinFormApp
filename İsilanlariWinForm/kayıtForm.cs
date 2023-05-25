@@ -95,6 +95,43 @@ namespace İsilanlariWinForm
             string TelNo = telnoTextbox1.text;
             KullaniciEkle(KullaniciAdi, Sifre, Email, TelNo);
         }
+
+        private void kullaniciadiTextbox1_OnTextChange(object sender, EventArgs e)
+        {
+            
+        }
+
+       private void sifreTextbox2_OnTextChange(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void telnoTextbox1_OnTextChange(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void emailTextbox3_OnTextChange(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void kullaniciadiTextbox1_Enter(object sender, EventArgs e)
+        {
+            kullaniciadiTextbox1.Text = string.Empty;
+        }
+        private void sifreTextbox2_Click(object sender, EventArgs e)
+        {
+            sifreTextbox2.Text = string.Empty;
+        }
+        private void telnoTextbox1_Click(object sender, EventArgs e)
+        {
+            telnoTextbox1.Text = string.Empty;
+        }
+        private void emailTextbox3_Click(object sender, EventArgs e)
+        {
+            emailTextbox3.Text = string.Empty;
+        }
     }
 
 

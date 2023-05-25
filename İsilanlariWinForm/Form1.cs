@@ -21,7 +21,7 @@ namespace İsilanlariWinForm
         string connectionString = "server=127.0.0.1;port=3306;user=root;password=mete;database=isealimdb;";
 
 
-        private void GirisYap(string kullaniciAdi, string sifre)
+        public void GirisYap(string kullaniciAdi, string sifre)
         {
             // Kullanıcıyı veritabanında ara ve eşleşmeyi kontrol et
             bool dogrulandi = KullaniciDogrula(kullaniciAdi, sifre);
@@ -29,7 +29,12 @@ namespace İsilanlariWinForm
             if (dogrulandi)
             {
                 MessageBox.Show("Giriş başarılı!", "Bildirim", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.Close();
+                
+                ArayüzForm arayüzform = new ArayüzForm(kullaniciAdi);
+                arayüzform.Show();
+                
+                Form1 form1= new Form1();
+                form1.Close();
             }
             else
             {
@@ -94,6 +99,11 @@ namespace İsilanlariWinForm
             string sifre = ParolaGirisText.Text;
 
             GirisYap(kullaniciAdi, sifre);
+           ArayüzForm arayüzForm = new ArayüzForm(kullaniciAdi);
+            ilanEkle ilanekle = new ilanEkle(kullaniciAdi);
+
+            string kullanicidegisken = kullaniciAdi;
+            
         }
 
         private void personelKayıtbtn_Click(object sender, EventArgs e)

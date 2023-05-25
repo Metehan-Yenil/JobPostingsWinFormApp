@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(kayıtForm));
-            this.label6 = new System.Windows.Forms.Label();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.bunifuCheckbox1 = new Bunifu.Framework.UI.BunifuCheckbox();
@@ -39,20 +39,24 @@
             this.sifreTextbox2 = new Bunifu.Framework.UI.BunifuTextbox();
             this.kullaniciadiTextbox1 = new Bunifu.Framework.UI.BunifuTextbox();
             this.bunifuCustomLabel1 = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.label6 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
-            // label6
+            // pictureBox2
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(341, 259);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(0, 16);
-            this.label6.TabIndex = 5;
+            this.pictureBox2.BackColor = System.Drawing.Color.DarkOrchid;
+            this.pictureBox2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.BackgroundImage")));
+            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox2.Location = new System.Drawing.Point(804, 12);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(31, 29);
+            this.pictureBox2.TabIndex = 19;
+            this.pictureBox2.TabStop = false;
+            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
             // 
             // panel1
             // 
@@ -113,6 +117,7 @@
             this.telnoTextbox1.Size = new System.Drawing.Size(283, 42);
             this.telnoTextbox1.TabIndex = 16;
             this.telnoTextbox1.text = "Telefon No";
+            this.telnoTextbox1.OnTextChange += new System.EventHandler(this.telnoTextbox1_OnTextChange);
             // 
             // kayıtolButton21
             // 
@@ -155,6 +160,7 @@
             this.emailTextbox3.Size = new System.Drawing.Size(330, 42);
             this.emailTextbox3.TabIndex = 14;
             this.emailTextbox3.text = "Email";
+            this.emailTextbox3.OnTextChange += new System.EventHandler(this.emailTextbox3_OnTextChange);
             // 
             // sifreTextbox2
             // 
@@ -171,6 +177,7 @@
             this.sifreTextbox2.Size = new System.Drawing.Size(283, 42);
             this.sifreTextbox2.TabIndex = 13;
             this.sifreTextbox2.text = "Şifre";
+            this.sifreTextbox2.OnTextChange += new System.EventHandler(this.sifreTextbox2_OnTextChange);
             // 
             // kullaniciadiTextbox1
             // 
@@ -186,6 +193,7 @@
             this.kullaniciadiTextbox1.Size = new System.Drawing.Size(283, 42);
             this.kullaniciadiTextbox1.TabIndex = 12;
             this.kullaniciadiTextbox1.text = "Kullanıcı Adı";
+            this.kullaniciadiTextbox1.OnTextChange += new System.EventHandler(this.kullaniciadiTextbox1_OnTextChange);
             // 
             // bunifuCustomLabel1
             // 
@@ -199,6 +207,14 @@
             this.bunifuCustomLabel1.Text = "Kayıt Ol";
             this.bunifuCustomLabel1.Click += new System.EventHandler(this.bunifuCustomLabel1_Click);
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(341, 259);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(0, 16);
+            this.label6.TabIndex = 5;
+            // 
             // pictureBox1
             // 
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
@@ -208,18 +224,6 @@
             this.pictureBox1.Size = new System.Drawing.Size(865, 563);
             this.pictureBox1.TabIndex = 10;
             this.pictureBox1.TabStop = false;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.BackColor = System.Drawing.Color.DarkOrchid;
-            this.pictureBox2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.BackgroundImage")));
-            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox2.Location = new System.Drawing.Point(804, 12);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(31, 29);
-            this.pictureBox2.TabIndex = 19;
-            this.pictureBox2.TabStop = false;
-            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
             // 
             // kayıtForm
             // 
@@ -233,10 +237,10 @@
             this.Name = "kayıtForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "kayıtForm";
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
 
         }

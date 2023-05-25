@@ -292,11 +292,23 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ArayüzForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ArayüzForm.Designer.cs">
+      <DependentUpon>ArayüzForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ilanEkle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ilanEkle.Designer.cs">
+      <DependentUpon>ilanEkle.cs</DependentUpon>
     </Compile>
     <Compile Include="kayıtForm.cs">
       <SubType>Form</SubType>
@@ -308,8 +320,14 @@
     <Compile Include="Models\Basvurular.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="ArayüzForm.resx">
+      <DependentUpon>ArayüzForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ilanEkle.resx">
+      <DependentUpon>ilanEkle.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="kayıtForm.resx">
       <DependentUpon>kayıtForm.cs</DependentUpon>
