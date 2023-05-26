@@ -13,7 +13,14 @@ namespace İsilanlariWinForm
 {
     public partial class ArayüzForm : Form
     {
+        private string userid;
+        private string yenikullanici;
 
+        public string UserID
+        {
+            get { return userid; }
+            set { userid = value; }
+        }
 
         public ArayüzForm(string kullanicidegisken)
         {
@@ -23,7 +30,7 @@ namespace İsilanlariWinForm
             // Kullanıcı adınızı ve token değerinizi burada belirtin
             string kullaniciAdi = kullanicidegisken;
             string dogruToken = "B2aJ6fTzYkx7C4W3dR8gS1hV9jM0nL5vEwFyKuHGmNl";
-
+            yenikullanici=kullanicidegisken;
             // Veritabanından kullanıcının token değerini alın
             string kullaniciToken = GetKullaniciTokenFromDatabase(kullaniciAdi);
 
@@ -84,8 +91,26 @@ namespace İsilanlariWinForm
 
         private void bunifuThinButton21_Click(object sender, EventArgs e)
         {
-            ilanEkle ilanekle = new ilanEkle(null);
+            string userid = yenikullanici;
+            ilanEkle ilanekle = new ilanEkle(userid);
             ilanekle.Show();
+            ilanekle.UserID = userid;
+        }
+
+        private void bunifuThinButton22_Click(object sender, EventArgs e)
+        {
+            AdminPanel adminPanel = new AdminPanel();
+            adminPanel.Show();
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bunifuFlatButton1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -35,10 +35,17 @@ namespace İsilanlariWinForm
                 
                 Form1 form1= new Form1();
                 form1.Close();
+
+                string userid = kullaniciAdi;
+                ilanEkle ilanekle = new ilanEkle(userid);
+               
+                ilanekle.UserID = userid;
             }
             else
             {
                 MessageBox.Show("Kullanıcı adı veya şifre hatalı!", "Bildirim", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+              
+
             }
         }
 
@@ -100,9 +107,10 @@ namespace İsilanlariWinForm
 
             GirisYap(kullaniciAdi, sifre);
            ArayüzForm arayüzForm = new ArayüzForm(kullaniciAdi);
-            ilanEkle ilanekle = new ilanEkle(kullaniciAdi);
-
             string kullanicidegisken = kullaniciAdi;
+            
+
+            
             
         }
 

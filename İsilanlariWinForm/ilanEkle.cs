@@ -10,73 +10,97 @@ using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 
 namespace İsilanlariWinForm
 {
 
     public partial class ilanEkle : Form
     {
-        public ilanEkle(string kullaniciAdi)
+
+
+
+        private string userid;
+
+        public string UserID
         {
-            InitializeComponent();
+            get { return userid; }
+            set { userid = value; }
         }
+
+        
         MySqlConnection connection;
         string connectionString = "server=127.0.0.1;port=3306;user=root;password=mete;database=isealimdb;";
+
+        public ilanEkle(string kullanicidegisken)
+        {
+            InitializeComponent();
+            
+            
+        }
+
         private void ilanEkle_Load(object sender, EventArgs e)
         {
 
         }
 
+
         private void bunifuThinButton21_Click(object sender, EventArgs e)
         {
-            // TextBox'lardan ilgili bilgileri alın
-            string ilanBasligi = bunifuTextbox1.Text;
+            string kullaniciAdi = UserID;
+            int kullaniciId=0;
+
+            string ilanBasligi = richTextBox2.Text;
             string ilanAciklamasi = richTextBox1.Text;
             string calismaSekli = listBox1.Text;
             string istenilenTecrube = textBox1.Text;
             string departman = textBox2.Text;
 
-            // Veritabanına ekleme işlemi için SQL sorgusu
-            string insertQuery = "INSERT INTO IsIlanlari (kullanici_id, ilan_basligi, ilan_aciklamasi, calisma_sekli, istenilen_tecrube, departman) " +
-                                 "values (@kullaniciId, @ilanBasligi, @ilanAciklamasi, @calismaSekli, @istenilenTecrube, @departman)";
-            string selectQuery = "select kullanici_id from kullanicilar where kullanici_adi= @kullaniciAdi;";
-            int kullaniciId;
-
-            int.TryParse(selectQuery, out kullaniciId);
-
-
-            // Veritabanı bağlantısı ve komut nesnesi oluşturma
             using (MySqlConnection connection = new MySqlConnection(connectionString))
-            using (MySqlCommand command = new MySqlCommand(insertQuery, connection))
             {
-                try
+                connection.Open();
+
+                string selectQuery = "SELECT kullanici_id FROM Kullanicilar WHERE kullanici_adi = @kullaniciAdi ";
+                using (MySqlCommand komut = new MySqlCommand(selectQuery, connection))
                 {
-                    // Parametreleri tanımlama ve değerlerini atama
-                    // command.Parameters.AddWithValue("@kullaniciId", kullaniciId); // Kullanıcı kimliği değerini belirleyin
-                    command.Parameters.AddWithValue("@ilanBasligi", ilanBasligi);
-                    command.Parameters.AddWithValue("@ilanAciklamasi", ilanAciklamasi);
-                    command.Parameters.AddWithValue("@calismaSekli", calismaSekli);
-                    command.Parameters.AddWithValue("@istenilenTecrube", istenilenTecrube);
-                    command.Parameters.AddWithValue("@departman", departman);
+                     komut.Parameters.AddWithValue("@kullaniciAdi",kullaniciAdi );
+                    object result = komut.ExecuteScalar();
+                    if (result != null && result != DBNull.Value)
+                    {
+                        kullaniciId = Convert.ToInt32(result);
+                    }
+                } // selectCommand'ı kapatın
 
-                    // Veritabanı bağlantısını açma
-                    connection.Open();
+                string insertQuery = "INSERT INTO IsIlanlari (kullanici_id, ilan_basligi, ilan_aciklamasi, calisma_sekli, istenilen_tecrube, departman) " +
+                                     "VALUES (@kullaniciId, @ilanBasligi, @ilanAciklamasi, @calismaSekli, @istenilenTecrube, @departman)";
 
-                    // Komutu çalıştırma (veriyi veritabanına ekleme)
-                    command.ExecuteNonQuery();
-
-                    // İşlem başarılı mesajı veya diğer işlemleri yapabilirsiniz
-                    MessageBox.Show("İş ilanı başarıyla eklendi.");
-
-                    // TextBox'ları temizleme veya diğer işlemleri yapabilirsiniz
-
-                }
-                catch (Exception ex)
+                using (MySqlCommand insertCommand = new MySqlCommand(insertQuery, connection))
                 {
-                    // Hata durumunda hata mesajını gösterme veya işlem yapabilirsiniz
-                    MessageBox.Show("İş ilanı eklenirken bir hata oluştu: " + ex.Message);
-                }
-            }
+                    try
+                    {
+                        insertCommand.Parameters.AddWithValue("@kullaniciId", kullaniciId);
+                        insertCommand.Parameters.AddWithValue("@ilanBasligi", ilanBasligi);
+                        insertCommand.Parameters.AddWithValue("@ilanAciklamasi", ilanAciklamasi);
+                        insertCommand.Parameters.AddWithValue("@calismaSekli", calismaSekli);
+                        insertCommand.Parameters.AddWithValue("@istenilenTecrube", istenilenTecrube);
+                        insertCommand.Parameters.AddWithValue("@departman", departman);
+
+                        insertCommand.ExecuteNonQuery();
+
+                        MessageBox.Show("İş ilanı başarıyla eklendi.");
+
+                        richTextBox2.Text = "";
+                        richTextBox1.Text = "";
+                        listBox1.SelectedIndex = -1;
+                        textBox1.Text = "";
+                        textBox2.Text = "";
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("İş ilanı eklenirken bir hata oluştu: " + ex.Message);
+                    }
+                } // insertCommand'ı kapatın
+            } // connection'ı kapatın
         }
 
         private void bunifuCustomLabel2_Click(object sender, EventArgs e)
@@ -84,9 +108,10 @@ namespace İsilanlariWinForm
 
         }
 
-      
-
-        
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 
 }

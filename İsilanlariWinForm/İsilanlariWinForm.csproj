@@ -292,6 +292,12 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdminPanel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminPanel.Designer.cs">
+      <DependentUpon>AdminPanel.cs</DependentUpon>
+    </Compile>
     <Compile Include="ArayüzForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -320,6 +326,9 @@
     <Compile Include="Models\Basvurular.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AdminPanel.resx">
+      <DependentUpon>AdminPanel.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ArayüzForm.resx">
       <DependentUpon>ArayüzForm.cs</DependentUpon>
     </EmbeddedResource>
