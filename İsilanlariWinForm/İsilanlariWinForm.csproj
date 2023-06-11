@@ -304,6 +304,12 @@
     <Compile Include="ArayüzForm.Designer.cs">
       <DependentUpon>ArayüzForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="BasvuruGörüntüle.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BasvuruGörüntüle.Designer.cs">
+      <DependentUpon>BasvuruGörüntüle.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -324,13 +330,34 @@
     </Compile>
     <Compile Include="Models\ApplicationConnectionDB.cs" />
     <Compile Include="Models\Basvurular.cs" />
+    <Compile Include="ProfilDuzenle.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ProfilDuzenle.Designer.cs">
+      <DependentUpon>ProfilDuzenle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ProfilGoruntule.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ProfilGoruntule.Designer.cs">
+      <DependentUpon>ProfilGoruntule.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="İlanGörüntüle.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="İlanGörüntüle.Designer.cs">
+      <DependentUpon>İlanGörüntüle.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="AdminPanel.resx">
       <DependentUpon>AdminPanel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ArayüzForm.resx">
       <DependentUpon>ArayüzForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BasvuruGörüntüle.resx">
+      <DependentUpon>BasvuruGörüntüle.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
@@ -340,6 +367,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="kayıtForm.resx">
       <DependentUpon>kayıtForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProfilDuzenle.resx">
+      <DependentUpon>ProfilDuzenle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProfilGoruntule.resx">
+      <DependentUpon>ProfilGoruntule.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -351,6 +384,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="İlanGörüntüle.resx">
+      <DependentUpon>İlanGörüntüle.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

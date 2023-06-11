@@ -35,8 +35,6 @@ namespace İsilanlariWinForm
         public ilanEkle(string kullanicidegisken)
         {
             InitializeComponent();
-            
-            
         }
 
         private void ilanEkle_Load(object sender, EventArgs e)

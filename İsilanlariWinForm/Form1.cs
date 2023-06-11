@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.TrayNotify;
 using MySql.Data.MySqlClient;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 //using System.Data.SqlClient;
 
 namespace İsilanlariWinForm
@@ -36,10 +37,11 @@ namespace İsilanlariWinForm
                 Form1 form1= new Form1();
                 form1.Close();
 
-                string userid = kullaniciAdi;
+                string userid = KullanıcıGirisText.Text;
                 ilanEkle ilanekle = new ilanEkle(userid);
-               
                 ilanekle.UserID = userid;
+
+                
             }
             else
             {
@@ -108,6 +110,7 @@ namespace İsilanlariWinForm
             GirisYap(kullaniciAdi, sifre);
            ArayüzForm arayüzForm = new ArayüzForm(kullaniciAdi);
             string kullanicidegisken = kullaniciAdi;
+            
             
 
             

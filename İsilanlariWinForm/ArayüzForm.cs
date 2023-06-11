@@ -1,4 +1,5 @@
-﻿using MySql.Data.MySqlClient;
+﻿using İsilanlariWinForm.Models;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -8,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 
 namespace İsilanlariWinForm
 {
@@ -15,6 +17,12 @@ namespace İsilanlariWinForm
     {
         private string userid;
         private string yenikullanici;
+        
+        private ProfilGoruntule profilGoruntule;
+        private ProfilDuzenle profilDuzenle;
+        //private AramaMotoru aramaMotoru;
+        // BasvurulariGoruntule basvurulariGoruntule;
+
 
         public string UserID
         {
@@ -110,7 +118,135 @@ namespace İsilanlariWinForm
 
         private void bunifuFlatButton1_Click(object sender, EventArgs e)
         {
+            
+            
+            // Button 1'e tıklandığında gösterilecek Panelgoruntule'yi oluştur ve Panel içine yerleştir
+            if (profilGoruntule == null)
+            {
+                profilGoruntule = new ProfilGoruntule()
+                {
+                    Dock = DockStyle.Fill
+                };
+            }
 
+           
+            ProfilGoruntule profilGoruntuleForm = new ProfilGoruntule();
+            profilGoruntuleForm.KullaniciAdi = yenikullanici; // yenikullanici, ArayüzForm'da kullaniciAdi değeridir
+            profilGoruntuleForm.Dock = DockStyle.Fill;
+
+            // Panel içindeki mevcut UserControl'ü kaldır
+            panel2.Controls.Clear();
+
+            // Yeni UserControl'ü Panel içine yerleştir
+            panel2.Controls.Add(profilGoruntuleForm);
+            
+
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void ArayüzForm_Load(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void bunifuImageButton1_Click(object sender, EventArgs e)
+        {
+
+            // Button a tıklandığında gösterilecek Panelduzenle'yi oluştur ve Panel içine yerleştir
+            if (profilDuzenle == null)
+            {
+                profilDuzenle = new ProfilDuzenle()
+                {
+                    Dock = DockStyle.Fill
+                };
+            }
+
+
+            ProfilDuzenle profilDuzenleForm = new ProfilDuzenle();
+            profilDuzenleForm.KullaniciAdi = yenikullanici; // yenikullanici, ArayüzForm'da kullaniciAdi değeridir
+            profilDuzenleForm.Dock = DockStyle.Fill;
+
+            // Panel içindeki mevcut UserControl'ü kaldır
+            panel2.Controls.Clear();
+
+            // Yeni UserControl'ü Panel içine yerleştir
+            panel2.Controls.Add(profilDuzenleForm);
+
+        }
+
+        private void bunifuImageButton7_Click(object sender, EventArgs e)
+        {
+            string aramaKelimesi = bunifuTextbox1.text;
+            
+
+
+            using (MySqlConnection connection = new MySqlConnection("server=127.0.0.1;port=3306;database=isealimdb;user=root;password=mete"))
+                {
+                    // Veritabanı bağlantısını aç
+                    connection.Open();
+
+                // İlan başlıklarını ara ve eşleşenleri ekrana getir
+                string query = "SELECT ilan_basligi FROM isilanlari WHERE ilan_basligi LIKE CONCAT('%', @aranan, '%')";
+                MySqlCommand command = new MySqlCommand(query, connection);
+                    command.Parameters.AddWithValue("@aranan", aramaKelimesi);
+
+                    using (MySqlDataReader reader = command.ExecuteReader())
+                    {
+                        string eşleşenIlanlar = "";
+                        while (reader.Read())
+                        {
+                            string ilanBasligi = reader.GetString("ilan_basligi");
+                            eşleşenIlanlar += ilanBasligi + "\n";
+                        }
+
+                        if (!string.IsNullOrEmpty(eşleşenIlanlar))
+                        {
+                            MessageBox.Show("Eşleşen ilanlar:\n" + eşleşenIlanlar);
+                        string kaynakString = bunifuTextbox1.text;
+
+                        // Hedef formdaki string değişkenine atama yap
+                        İlanGörüntüle ilanGörüntüle = new İlanGörüntüle();
+                        /*
+
+                        if (ilanGörüntüle == null)
+                        {
+                            ilanGörüntüle = new İlanGörüntüle()
+                            {
+                                Dock = DockStyle.Fill
+                            };
+                        }
+                      */
+                        panel2.Controls.Clear();
+
+                         ilanGörüntüle.HedefString = kaynakString;
+
+                         // Yeni UserControl'ü Panel içine yerleştir 
+                        panel2.Controls.Add(ilanGörüntüle);
+                        ilanGörüntüle.Dock = DockStyle.Fill;
+                        ilanGörüntüle.Show();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Eşleşen ilan bulunamadı.");
+                        }
+                    }
+
+                    // Veritabanı bağlantısını kapat
+                    connection.Close();
+                }
+
+            
+        }
+
+        private void bunifuImageButton2_Click(object sender, EventArgs e)
+        {
+            BasvuruGörüntüle basvuruGörüntüle = new BasvuruGörüntüle();
+            panel2.Controls.Clear();
+            panel2.Show();
         }
     }
 }
