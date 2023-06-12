@@ -310,6 +310,24 @@
     <Compile Include="BasvuruGörüntüle.Designer.cs">
       <DependentUpon>BasvuruGörüntüle.cs</DependentUpon>
     </Compile>
+    <Compile Include="Basvurular.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Basvurular.Designer.cs">
+      <DependentUpon>Basvurular.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Durum.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Durum.Designer.cs">
+      <DependentUpon>Durum.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Filtrele.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Filtrele.Designer.cs">
+      <DependentUpon>Filtrele.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -358,6 +376,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="BasvuruGörüntüle.resx">
       <DependentUpon>BasvuruGörüntüle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Basvurular.resx">
+      <DependentUpon>Basvurular.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Durum.resx">
+      <DependentUpon>Durum.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Filtrele.resx">
+      <DependentUpon>Filtrele.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>

@@ -53,7 +53,7 @@ namespace İsilanlariWinForm
             string calismaSekli = listBox1.Text;
             string istenilenTecrube = textBox1.Text;
             string departman = textBox2.Text;
-
+            string maas=textBox3.Text;
             using (MySqlConnection connection = new MySqlConnection(connectionString))
             {
                 connection.Open();
@@ -69,8 +69,8 @@ namespace İsilanlariWinForm
                     }
                 } // selectCommand'ı kapatın
 
-                string insertQuery = "INSERT INTO IsIlanlari (kullanici_id, ilan_basligi, ilan_aciklamasi, calisma_sekli, istenilen_tecrube, departman) " +
-                                     "VALUES (@kullaniciId, @ilanBasligi, @ilanAciklamasi, @calismaSekli, @istenilenTecrube, @departman)";
+                string insertQuery = "INSERT INTO IsIlanlari (kullanici_id, ilan_basligi, ilan_aciklamasi, calisma_sekli, istenilen_tecrube, departman,maas) " +
+                                     "VALUES (@kullaniciId, @ilanBasligi, @ilanAciklamasi, @calismaSekli, @istenilenTecrube, @departman, @maas)";
 
                 using (MySqlCommand insertCommand = new MySqlCommand(insertQuery, connection))
                 {
@@ -82,7 +82,7 @@ namespace İsilanlariWinForm
                         insertCommand.Parameters.AddWithValue("@calismaSekli", calismaSekli);
                         insertCommand.Parameters.AddWithValue("@istenilenTecrube", istenilenTecrube);
                         insertCommand.Parameters.AddWithValue("@departman", departman);
-
+                        insertCommand.Parameters.AddWithValue("@maas", maas);
                         insertCommand.ExecuteNonQuery();
 
                         MessageBox.Show("İş ilanı başarıyla eklendi.");

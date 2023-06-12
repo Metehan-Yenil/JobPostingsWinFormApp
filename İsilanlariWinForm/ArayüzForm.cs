@@ -210,16 +210,9 @@ namespace İsilanlariWinForm
 
                         // Hedef formdaki string değişkenine atama yap
                         İlanGörüntüle ilanGörüntüle = new İlanGörüntüle();
-                        /*
-
-                        if (ilanGörüntüle == null)
-                        {
-                            ilanGörüntüle = new İlanGörüntüle()
-                            {
-                                Dock = DockStyle.Fill
-                            };
-                        }
-                      */
+                        ilanGörüntüle.kullaniciAdi = yenikullanici;
+                        
+                      
                         panel2.Controls.Clear();
 
                          ilanGörüntüle.HedefString = kaynakString;
@@ -244,9 +237,51 @@ namespace İsilanlariWinForm
 
         private void bunifuImageButton2_Click(object sender, EventArgs e)
         {
-            BasvuruGörüntüle basvuruGörüntüle = new BasvuruGörüntüle();
+            Basvurular basvurular = new Basvurular();
+            basvurular.kullaniciAdi = yenikullanici;
+            
+            
+
+            // Basvurular kullanıcı denetimini panel2'ye yerleştirin
+            basvurular.Dock = DockStyle.Fill;
             panel2.Controls.Clear();
-            panel2.Show();
+            panel2.Controls.Add(basvurular);
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void bunifuImageButton8_Click(object sender, EventArgs e)
+        {
+            Filtrele filtrele = new Filtrele();
+            filtrele.anahtar = bunifuTextbox1.text;
+
+            panel2.Controls.Clear();
+
+            
+
+            // Yeni UserControl'ü Panel içine yerleştir 
+            panel2.Controls.Add(filtrele);
+            filtrele.Dock = DockStyle.Fill;
+            filtrele.Show();
+
+        }
+
+        private void bunifuImageButton3_Click(object sender, EventArgs e)
+        {
+            Durum durum = new Durum();  
+            durum.kullaniciAdi=yenikullanici;
+            panel2.Controls.Clear();
+
+
+
+            // Yeni UserControl'ü Panel içine yerleştir 
+            panel2.Controls.Add(durum);
+            durum.Dock = DockStyle.Fill;
+            durum.Show();
         }
     }
 }
